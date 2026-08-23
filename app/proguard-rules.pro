@@ -1,0 +1,4 @@
+-keep class com.ultraclone.pro.core.clone.** { *; }
+-keep class com.ultraclone.pro.data.model.** { *; }
+-keep class com.ultraclone.pro.core.root.** { *; }
+-dontwarn com.termux.**

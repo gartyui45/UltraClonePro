@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UltraClone Pro</string>
+    <string name="select_apps">Selecionar Apps</string>
+    <string name="clone_selected">Clonar Selecionados</string>
+    <string name="search_apps">Buscar apps…</string>
+    <string name="cloning_progress">Clonando %1$d de %2$d…</string>
+    <string name="my_clones">Meus Clones</string>
+    <string name="open_clone">Abrir</string>
+    <string name="delete_clone">Excluir Clone</string>
+    <string name="terminal">Terminal</string>
+    <string name="stealth_mode">Modo Furtivo</string>
+    <string name="regenerate_fingerprint">Regenerar Fingerprint</string>
+</resources>

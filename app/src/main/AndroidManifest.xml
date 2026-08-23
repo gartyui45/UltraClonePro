@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".UltraCloneApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="UltraClone Pro"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UltraClonePro"
+        android:multiDexEnabled="true"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.UltraClonePro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".core.clone.VProvider"
+            android:authorities="${applicationId}.vprovider"
+            android:exported="false"
+            android:process=":virtual_engine" />
+
+        <service
+            android:name=".core.clone.VEngineService"
+            android:exported="false"
+            android:process=":virtual_engine"
+            android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name=".core.clone.VCloneService"
+            android:exported="false"
+            android:process=":clone_runtime" />
+
+        <receiver android:name=".core.clone.BootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
